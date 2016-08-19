@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="pastry-plugin-storage"
+        version="1.0.0">
+
+    <name>pastry-plugin-storage</name>
+    <description> </description>
+    <license>MIT</license>
+    <keywords>storage</keywords>
+    <repo>https://github.com/pastryTeam/pastry-plugin-storage.git</repo>
+    <issue>https://github.com/pastryTeam/pastry-plugin-storage/issues</issue>
+
+    <hook src="hooks/after_plugin_install.js" type="after_plugin_install"/>
+    <hook src="hooks/before_plugin_uninstall.js" type="before_plugin_uninstall"/>
+    
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="PTStorage">
+                <param name="ios-package" value="PTStorage"/>
+            </feature>
+        </config-file>
+
+        <!-- 添加js代码的示例 -->
+        <!--<js-module src="www/example.js" name="example">
+            <clobbers target="example" />
+        </js-module>-->
+
+        <!-- 添加代码文件的示例 -->
+        <header-file src="src/ios/PTStorage.h" />
+        <source-file src="src/ios/PTStorage.m" />
+
+        <!-- 添加图片资源的示例 -->
+        <!--<resource-file src="src/ios/icon.png" />-->
+        <!--<resource-file src="src/ios/CDVCapture.bundle" />-->
+        <!--添加framework的示例-->
+        <!--<framework src="ImageIO.framework" weak="true" />-->
+
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="example">
+                <param name="android-package" value="package.example"/>
+            </feature>
+        </config-file>
+
+        <js-module src="www/example.js" name="example">
+            <clobbers target="example" />
+        </js-module>
+
+        <source-file src="src/android/example2.java" target-dir="src/package" />
+
+    </platform>
+
+</plugin>
