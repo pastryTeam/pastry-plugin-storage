@@ -49,6 +49,12 @@
         <header-file src="src/ios/PTStorage.h" />
         <source-file src="src/ios/PTStorage.m" />
 
+        <header-file src="src/ios/client/CustomStorage.h" target-dir="client" />
+        <source-file src="src/ios/client/CustomStorage.m" target-dir="client" />
+        <header-file src="src/ios/client/StorageViewController.h" target-dir="client" />
+        <source-file src="src/ios/client/StorageViewController.m" target-dir="client" />
+        <source-file src="src/ios/client/StorageViewController.xib" target-dir="client" />
+
         <!-- 添加图片资源的示例 -->
         <!--<resource-file src="src/ios/icon.png" />-->
         <!--<resource-file src="src/ios/CDVCapture.bundle" />-->
@@ -69,7 +75,7 @@
             <clobbers target="example" />
         </js-module>
 
-        <source-file src="src/android/example2.java" target-dir="src/package" />
+        <source-file src="src/android/PTStorage.java" target-dir="src/package" />
 
     </platform>
 
