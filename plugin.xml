@@ -67,16 +67,16 @@
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="example">
-                <param name="android-package" value="package.example"/>
+            <feature name="PTStorage">
+                <param name="android-package" value="asp.citic.ptframework.plugin.PTStorage"/>
             </feature>
         </config-file>
 
-        <js-module src="www/example.js" name="example">
+        <!--<js-module src="www/example.js" name="example">
             <clobbers target="example" />
-        </js-module>
+        </js-module>-->
 
-        <source-file src="src/android/PTStorage.java" target-dir="src/package" />
+        <source-file src="src/android/PTStorage.java" target-dir="src/asp/citic/ptframework/plugin/storage" />
 
     </platform>
 
