@@ -25,19 +25,9 @@ PT_REGISTER_COMPONENT(PTComponentType_Native, 加密存储组件示例集合, �
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    if ([[PTStorageManager getInstance] storageState]) {
-        // 加密存储模块可用
-        customStorage = [[CustomStorage alloc] init];
-        [[PTStorageManager getInstance] registStorage:customStorage];
-    }
-    else{
-        // 加密存储模块不可用，需要进行重新握手操作；
-        BOOL result = [[PTFramework getInstance] handShake];
-        if (result) {
-            customStorage = [[CustomStorage alloc] init];
-            [[PTStorageManager getInstance] registStorage:customStorage];
-        }
-    }
+    // 注册自定义的存储模块
+    customStorage = [[CustomStorage alloc] init];
+    [[PTStorageManager getInstance] registStorage:customStorage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +53,10 @@ PT_REGISTER_COMPONENT(PTComponentType_Native, 加密存储组件示例集合, �
     }];
 }
 
+#pragma mark - 需要联网，握手成功后才能使用
+/**
+ * 需要联网，握手成功后才能使用
+ */
 - (IBAction)systemEncryptAction:(id)sender {
     if ([[PTStorageManager getInstance] storageState]) {
         [[PTStorageManager getInstance] put:@"key1" value:@"pastry" formStorageName:@"PTSystemStorage"];
@@ -70,6 +64,9 @@ PT_REGISTER_COMPONENT(PTComponentType_Native, 加密存储组件示例集合, �
     }
 }
 
+/**
+ * 需要联网，握手成功后才能使用
+ */
 - (IBAction)systemDecrypt:(id)sender {
     if ([[PTStorageManager getInstance] storageState]) {
         NSString *result = [[PTStorageManager getInstance] getString:@"key1" formStorageName:@"PTSystemStorage"];
@@ -78,6 +75,9 @@ PT_REGISTER_COMPONENT(PTComponentType_Native, 加密存储组件示例集合, �
     
 }
 
+/**
+ * 需要联网，握手成功后才能使用
+ */
 - (IBAction)frameCustomEncrypt:(id)sender {
     if ([[PTStorageManager getInstance] storageState]) {
         [[PTStorageManager getInstance] put:@"key1" value:@"pastry" formStorageName:@"PTPrivateStorage"];
@@ -85,6 +85,9 @@ PT_REGISTER_COMPONENT(PTComponentType_Native, 加密存储组件示例集合, �
     }
 }
 
+/**
+ * 需要联网，握手成功后才能使用
+ */
 - (IBAction)frameCustomDecrypt:(id)sender {
     if ([[PTStorageManager getInstance] storageState]) {
         NSString *result = [[PTStorageManager getInstance] getString:@"key1" formStorageName:@"PTPrivateStorage"];
@@ -93,28 +96,21 @@ PT_REGISTER_COMPONENT(PTComponentType_Native, 加密存储组件示例集合, �
     
 }
 
+#pragma mark - 不需要联网，正常使用
+/**
+ * 不需要联网，正常使用
+ */
 - (IBAction)clientCustomEncrypt:(id)sender {
-    if ([[PTStorageManager getInstance] storageState]) {
-        [[PTStorageManager getInstance] put:@"key1" value:@"pastry" formStorageName:[customStorage getName]];
-        [[PTStorageManager getInstance] commit:[customStorage getName]];
-    }
+    [[PTStorageManager getInstance] put:@"key1" value:@"pastry" formStorageName:[customStorage getName]];
+    [[PTStorageManager getInstance] commit:[customStorage getName]];
 }
 
+/**
+ * 不需要联网，正常使用
+ */
 - (IBAction)clientCustomDecrypt:(id)sender {
-    if ([[PTStorageManager getInstance] storageState]) {
-        NSString *result = [[PTStorageManager getInstance] getString:@"key1" formStorageName:[customStorage getName]];
-        PTLogDebug(@"自定义解密结果 = %@", result);
-    }
-    
-}
-
-
-#pragma mark - PTFrameworkDelegate 协议
-- (void)didStorageChangeWithState:(int)result{
-    if (result) {
-        customStorage = [[CustomStorage alloc] init];
-        [[PTStorageManager getInstance] registStorage:customStorage];
-    }
+    NSString *result = [[PTStorageManager getInstance] getString:@"key1" formStorageName:[customStorage getName]];
+    PTLogDebug(@"自定义解密结果 = %@", result);
 }
 
 @end

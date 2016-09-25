@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StorageViewController : PTViewControllerBase<PTFrameworkDelegate, PTComponentInterface>
+@interface StorageViewController : PTViewControllerBase<PTComponentInterface>
 
 - (IBAction)returnBeforePage:(id)sender;
 
+#pragma mark - 需要联网，握手成功后才能使用
 /**
  * 系统方式 加密
  */
@@ -32,6 +33,7 @@
  */
 - (IBAction)frameCustomDecrypt:(id)sender;
 
+#pragma mark - 不需要联网，正常使用
 /**
  * 客户端实现的 加密 继承于 PTSecurityStorage 类
  */

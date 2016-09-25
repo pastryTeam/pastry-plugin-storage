@@ -82,4 +82,12 @@
     return @"CustomStorage";
 }
 
+/*
+ * 添加本地存储加解密不联网可用的功能<br/>
+ * 子类需要实现 - (NSString *)getUUIDClearKey; 方法，指定给 客户端明文UUID 加解密使用的 密钥 混淆前字符串
+ */
+- (NSString *)getUUIDClearKey {
+    return @"fdafdsfsafdsafdsafdsafdsafdsa";
+}
+
 @end
