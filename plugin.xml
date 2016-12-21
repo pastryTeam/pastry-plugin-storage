@@ -49,6 +49,24 @@
         <header-file src="src/ios/PTStorage.h" />
         <source-file src="src/ios/PTStorage.m" />
 
+        <header-file src="src/ios/SSKeychian/SSKeychian.h" target-dir="SSKeychian" />
+        <source-file src="src/ios/SSKeychian/SSKeychian.m" target-dir="SSKeychian" />
+
+
+        <header-file src="src/ios/storage/PTPrivateStorage.h" target-dir="storage" />
+        <source-file src="src/ios/storage/PTPrivateStorage.m" target-dir="storage" />
+        <header-file src="src/ios/storage/PTSecurityStorage.h" target-dir="storage" />
+        <source-file src="src/ios/storage/PTSecurityStorage.m" target-dir="storage" />
+        
+        <header-file src="src/ios/storage/PTStorageDelegate.h" target-dir="storage" />
+        
+        <header-file src="src/ios/storage/PTStorageManager.h" target-dir="storage" />
+        <source-file src="src/ios/storage/PTStorageManager.m" target-dir="storage" />
+        <header-file src="src/ios/storage/PTStorageSecretKeyManager.h" target-dir="storage" />
+        <source-file src="src/ios/storage/PTStorageSecretKeyManager.m" target-dir="storage" />
+        <header-file src="src/ios/storage/PTSystemStorage.h" target-dir="storage" />
+        <source-file src="src/ios/storage/PTSystemStorage.m" target-dir="storage" />
+
         <header-file src="src/ios/client/CustomStorage.h" target-dir="client" />
         <source-file src="src/ios/client/CustomStorage.m" target-dir="client" />
         <header-file src="src/ios/client/StorageViewController.h" target-dir="client" />
