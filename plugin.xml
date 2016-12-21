@@ -49,8 +49,8 @@
         <header-file src="src/ios/PTStorage.h" />
         <source-file src="src/ios/PTStorage.m" />
 
-        <header-file src="src/ios/SSKeychian/SSKeychian.h" target-dir="SSKeychian" />
-        <source-file src="src/ios/SSKeychian/SSKeychian.m" target-dir="SSKeychian" />
+        <header-file src="src/ios/SSKeychain/SSKeychain.h" target-dir="SSKeychain" />
+        <source-file src="src/ios/SSKeychain/SSKeychain.m" target-dir="SSKeychain" />
 
 
         <header-file src="src/ios/storage/PTPrivateStorage.h" target-dir="storage" />
