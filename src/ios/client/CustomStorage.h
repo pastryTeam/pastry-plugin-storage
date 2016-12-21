@@ -6,7 +6,7 @@
 //
 //
 
-#import <PT/PT.h>
+#import "PTSecurityStorage.h"
 
 @interface CustomStorage : PTSecurityStorage
 

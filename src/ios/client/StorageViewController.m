@@ -7,7 +7,7 @@
 //
 
 #import "StorageViewController.h"
-
+#import "PTStorageManager.h"
 #import "CustomStorage.h"
 
 @interface StorageViewController (){
